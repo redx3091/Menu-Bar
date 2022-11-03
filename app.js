@@ -4,8 +4,14 @@ require('express-async-errors');
 const express = require('express');
 const cors = require('cors');
 
-const ProductRouter = require('./routers/router');
+//* Routers
+const ProductRouter = require('./routers/product.router');
+const AuthRouter = require('./routers/auth.router');
+
+//* DB connection
 const connectDB = require('./db/connect');
+
+//* Error Handler
 const ErrorHandler = require('./middleware/error-handler');
 
 const app = express();
@@ -13,10 +19,11 @@ const port = process.env.PORT || 3000;
 
 app.use(express.json());
 
-//*Routes
+//* Routes
+app.use('/api/v1/auth', AuthRouter)
 app.use('/api/v1/productos', ProductRouter)
 
-//*Middlewares
+//* Middlewares
 app.use(ErrorHandler);
 
 const start = async () => {

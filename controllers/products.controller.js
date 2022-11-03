@@ -2,6 +2,7 @@ const Product = require('../models/product.model');
 const { StatusCodes } = require('http-status-codes');
 const { NotFoundError } = require('../errors/index.errors')
 
+
 const CreateProduct = async (req, res) => {
   await Product
   .create(req.body)
@@ -37,7 +38,7 @@ const DeleteProduct = async (req, res, next) => {
   if(!product){
     throw new NotFoundError(`No se encontro poducto con el id: ${productId}`)
   }
-  res.status(200).json('producto eliminado')
+  res.status(200).json({msg:'producto eliminado'})
 }
 
 module.exports = {
