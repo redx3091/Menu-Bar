@@ -8,7 +8,7 @@ const productSchema = new mongoose.Schema({
   },
   price: {
     type: Number,
-    required: [true, 'product pice must be provided'],
+    required: [true, 'product price must be provided'],
   },
   createAt: {
     type: Date,
