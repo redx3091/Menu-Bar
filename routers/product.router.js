@@ -7,4 +7,4 @@ const { CreateProduct, GetAllProducts, UpdateProduct, DeleteProduct } = require(
 Router.route('/').post(AuthUser, CreateProduct).get(GetAllProducts);
 Router.route('/:id').patch(AuthUser, UpdateProduct).delete(AuthUser, DeleteProduct)
 
-module.exports = Router;
+module.exports = Router
